@@ -1,0 +1,12 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+main {
+    padding-top: 68px;
+    padding-bottom: 52px;
+}
