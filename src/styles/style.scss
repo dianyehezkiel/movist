@@ -1,12 +1,164 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
 
 body {
     position: relative;
     min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 main {
     padding-top: 68px;
     padding-bottom: 52px;
+}
+
+main.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
+
+.movie-card {
+    background: transparent;
+    width: 10rem;
+    display: inline-block;
+    padding: 0 !important;
+    margin: 12px 8px;
+    border-radius: 10px;
+    border: 0;
+    color: black;
+    transition: all 0.5s ease 0.1s;
+    text-decoration: none;
+}
+
+card-item:first-child {
+    margin-left: 24px;
+}
+
+card-item:last-child {
+    margin-right: 24px;
+}
+
+
+.movie-card:hover {
+    cursor: pointer;
+    color: black;
+    transform: scale(1.07);
+}
+
+.movie-card img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 15rem;
+}
+
+.movie-card-body {
+    padding: 0.5rem;
+    padding-top: 1.2rem;
+}
+
+.movie-card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1px;
+    color: whitesmoke;
+    white-space: nowrap;
+    max-lines: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    color: #d1d1d1;
+}
+
+.movie-rating {
+    position: absolute;
+    right: 0.5rem;
+}
+
+.movie-card-body>.movie-rating>.bi-star-fill {
+    color: gold;
+}
+
+.movie-card-body>.bi-play-fill {
+    font-size: 4rem;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    top: 13rem;
+    color: #c00000;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.movie-card-body>.bi-play-fill:hover {
+    color: red;
+}
+
+.card-slider {
+    width: 100%;
+    background: rgba(12, 17, 27);
+}
+
+.bi-chevron-right,
+.bi-chevron-left {
+    margin: auto 0;
+    color: whitesmoke !important;
+}
+
+.card-slider>button.next-arrow,
+.card-slider>button.prev-arrow {
+    opacity: 0;
+    border: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    height: 100%;
+    width: fit-content;
+    padding: auto;
+    font-size: 2rem;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+.card-slider>button.prev-arrow {
+    background: -webkit-linear-gradient(right, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
+    left: 0;
+}
+
+.card-slider>button.next-arrow {
+    background: -webkit-linear-gradient(left, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
+    right: 0;
+}
+
+.card-slider:hover>button.next-arrow,
+.card-slider:hover>button.prev-arrow {
+    opacity: 100%;
 }
