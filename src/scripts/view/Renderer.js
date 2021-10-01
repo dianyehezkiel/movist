@@ -11,6 +11,15 @@ class Renderer {
     slickConf();
   }
 
+  static renderList(items) {
+    const mainElem = document.getElementById('main');
+    mainElem.innerHTML = '';
+
+    const cardListElem = document.createElement('card-list');
+    cardListElem.listItems = items;
+    mainElem.appendChild(cardListElem);
+  }
+
   static renderError(message) {
     // Test
     console.log(message);
