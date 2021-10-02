@@ -1,4 +1,3 @@
-// import {URL, URLSearchParams} from 'url';
 import Renderer from '../view/Renderer';
 
 class Movie {
@@ -19,11 +18,11 @@ class Movie {
                 Renderer.renderSlider(responseJson.results);
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results);
+                Renderer.renderList(responseJson.results, 'Popular Movies');
                 break;
               default:
-                // eslint-disable-next-line max-len
-                Renderer.renderError(`Error: getPopular's param renderInto required`);
+                Renderer.renderError(
+                    `Error: getPopular's param renderInto required`);
             }
           }
         })

@@ -7,7 +7,11 @@ class CardList extends HTMLElement {
   }
 
   render() {
-    // this.classList.add('');
+    this.classList.add(
+        'container-lg',
+        'd-flex',
+        'flex-wrap',
+        'justify-content-evenly');
     this.innerHTML = '';
     this._items.forEach((item) => {
       const cardItemElement = document.createElement('card-item');

@@ -12,9 +12,10 @@ class Renderer {
     slickConf();
   }
 
-  static renderList(items) {
+  static renderList(items, title) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = '';
+    mainElem.innerHTML = `<h1 class='d-block fw-bold text-center'>
+        ${title}</h1>`;
     const cardListElem = document.createElement('card-list');
     cardListElem.listItems = items;
     mainElem.appendChild(cardListElem);

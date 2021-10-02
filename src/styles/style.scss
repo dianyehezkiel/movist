@@ -95,7 +95,7 @@ card-item:last-child {
 
 .movie-info {
     font-size: 0.8rem;
-    font-weight: lighter;
+    font-weight: normal;
     color: #d1d1d1;
 }
 
@@ -114,7 +114,7 @@ card-item:last-child {
     position: absolute;
     right: 0;
     top: 13rem;
-    color: #c00000;
+    color: $red;
     cursor: pointer;
     transition: color 0.5s ease;
 }
@@ -161,4 +161,20 @@ card-item:last-child {
 .card-slider:hover>button.next-arrow,
 .card-slider:hover>button.prev-arrow {
     opacity: 100%;
+}
+
+card-list card-item:first-child {
+    margin-left: unset;
+}
+
+card-list card-item:last-child {
+    margin-right: unset;
+}
+
+card-list .movie-card-title {
+    color: #0f0f0f;
+}
+
+card-list .movie-info {
+    color: #1f1f1f;
 }
