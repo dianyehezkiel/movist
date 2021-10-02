@@ -6,7 +6,6 @@ class Renderer {
   static renderSlider(items) {
     const mainElem = document.getElementById('main');
     mainElem.innerHTML = '';
-    console.log('run renderSlider');
     const cardSliderElem = document.createElement('card-slider');
     cardSliderElem.sliderItems = items;
     mainElem.appendChild(cardSliderElem);
@@ -16,7 +15,6 @@ class Renderer {
   static renderList(items) {
     const mainElem = document.getElementById('main');
     mainElem.innerHTML = '';
-    console.log('run renderList');
     const cardListElem = document.createElement('card-list');
     cardListElem.listItems = items;
     mainElem.appendChild(cardListElem);

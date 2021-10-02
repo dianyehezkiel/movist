@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable require-jsdoc */
 class CardItem extends HTMLElement {
   set item(item) {
     this._item = item;

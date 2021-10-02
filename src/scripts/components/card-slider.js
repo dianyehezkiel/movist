@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 import './card-item.js';
 
 class CardSlider extends HTMLElement {
