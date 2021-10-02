@@ -7,7 +7,6 @@ import 'bootstrap/js/dist/dropdown';
 // import 'slick-carousel';
 import main from './scripts/main';
 
-
-main();
+document.addEventListener('DOMContentLoaded', main);
 
 // import 'bootstrap';
