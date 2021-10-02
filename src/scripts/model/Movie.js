@@ -1,10 +1,9 @@
-// import {URL, URLSearchParams} from 'url';
 import Renderer from '../view/Renderer';
 
 class Movie {
-  static getPopular(baseUrl='https://api.themoviedb.org/3', params) {
+  static getPopular(baseUrl='https://api.themoviedb.org/3', urlParams, renderInto) {
     const url = new URL(`${baseUrl}/movie/popular`);
-    url.search = new URLSearchParams(params).toString();
+    url.search = new URLSearchParams(urlParams).toString();
 
     fetch(url)
         .then((response) => {
@@ -14,7 +13,17 @@ class Movie {
           if (responseJson.status_code) {
             Renderer.renderError(responseJson.status_message);
           } else {
-            Renderer.renderSlider(responseJson.results);
+            switch (renderInto) {
+              case 'slider':
+                Renderer.renderSlider(responseJson.results);
+                break;
+              case 'list':
+                Renderer.renderList(responseJson.results, 'Popular Movies');
+                break;
+              default:
+                Renderer.renderError(
+                    `Error: getPopular's param renderInto required`);
+            }
           }
         })
         .catch((error) => {
