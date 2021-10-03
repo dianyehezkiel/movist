@@ -14,6 +14,9 @@ class Movie {
             Renderer.renderError(responseJson.status_message);
           } else {
             switch (renderInto) {
+              case 'carousel':
+                Renderer.renderCarousel(responseJson.results);
+                break;
               case 'slider':
                 Renderer.renderSlider(responseJson.results, 'Popular Movies');
                 break;

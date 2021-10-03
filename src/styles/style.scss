@@ -35,6 +35,48 @@ main.container-fluid {
     padding-right: 0;
 }
 
+
+carousel-item {
+    display: inline-block;
+    width: 80vw !important;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+carousel-item img {
+    width: 40vw;
+    border-radius: 10px 0 0 10px;
+    
+}
+
+.carousel-info {
+    color: whitesmoke;
+    width: 50vw;
+    padding: 16px;
+    padding-left: 10vw;
+    background: -webkit-linear-gradient(left, transparent, rgba(0,0,0, 0) 1%,rgba(12,17,27, 0.8) 10%, rgba(12,17,27,1) 15%, rgba(12,17,27,1));
+    border-radius: 0 10px 10px 0;
+}
+
+carousel-banner button.next-arrow,
+carousel-banner button.prev-arrow {
+    opacity: 0;
+    border: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    height: (40vw * 9/16);
+    width: fit-content;
+    padding: auto;
+    font-size: 2rem;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+carousel-banner:hover button.next-arrow,
+carousel-banner:hover button.prev-arrow {
+    opacity: 1;
+}
+
 img {
     -webkit-user-drag: none;
     -moz-user-drag: none;
@@ -124,7 +166,7 @@ card-item:last-child {
 }
 
 
-.splide__track {
+card-slider .splide__track {
     height: 21rem;
     background: rgba(12, 17, 27);
 }
@@ -158,24 +200,24 @@ card-slider button.prev-arrow {
     transition: opacity 0.5s ease 0.2s;
 }
 
-card-slider button.prev-arrow {
+button.prev-arrow {
     background: -webkit-linear-gradient(right, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
     left: 0;
 }
 
-card-slider button.next-arrow {
+button.next-arrow {
     background: -webkit-linear-gradient(left, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
     right: 0;
 }
 
 card-slider:hover button.next-arrow,
 card-slider:hover button.prev-arrow {
-    opacity: 100%;
+    opacity: 1;
 }
 
-card-slider button.next-arrow:disabled,
-card-slider button.prev-arrow:disabled {
-    opacity: 0;
+button.next-arrow:disabled,
+button.prev-arrow:disabled {
+    opacity: 0 !important;
 }
 
 card-list card-item:first-child {
@@ -221,7 +263,7 @@ card-list .movie-info {
         font-size: 0.7rem;
     }
 
-    .splide__track {
+    card-slider .splide__track {
         height: 18rem;
     }
 
@@ -250,7 +292,7 @@ card-list .movie-info {
         top: 8rem;
     }
 
-    .splide__track {
+    card-slider .splide__track {
         height: 14rem;
     }
 
