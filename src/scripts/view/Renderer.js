@@ -18,14 +18,14 @@ class Renderer {
     const mainElem = document.getElementById('main');
 
     const sliderTitle = document.createElement('h2');
-    sliderTitle.classList.add('d-block', 'fw-bold');
+    sliderTitle.classList.add('d-block', 'fw-bold', 'mt-3', 'ms-2');
     sliderTitle.innerHTML = title;
     mainElem.appendChild(sliderTitle);
 
     const cardSliderElem = document.createElement('card-slider');
     cardSliderElem.sliderItems = items;
     mainElem.appendChild(cardSliderElem);
-    splideSlider();
+    splideSlider(cardSliderElem);
   }
 
   static renderList(items, title) {
