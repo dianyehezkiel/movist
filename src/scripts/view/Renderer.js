@@ -1,15 +1,17 @@
 import '../components/card-slider.js';
 import '../components/card-list.js';
-import {slickConf} from '../slick_conf/slickConf.js';
+
+import splideSlider from '../splide_conf/splideSlider.js';
 
 class Renderer {
-  static renderSlider(items) {
+  static renderSlider(items, title) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = '';
+    mainElem.innerHTML = `<h2 class='d-block fw-bold'>
+    ${title}</h2>`;
     const cardSliderElem = document.createElement('card-slider');
     cardSliderElem.sliderItems = items;
     mainElem.appendChild(cardSliderElem);
-    slickConf();
+    splideSlider();
   }
 
   static renderList(items, title) {

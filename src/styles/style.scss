@@ -123,8 +123,9 @@ card-item:last-child {
     color: red;
 }
 
-.card-slider {
-    width: 100%;
+
+.splide__track {
+    height: 21rem;
     background: rgba(12, 17, 27);
 }
 
@@ -134,33 +135,47 @@ card-item:last-child {
     color: whitesmoke !important;
 }
 
-.card-slider>button.next-arrow,
-.card-slider>button.prev-arrow {
+.splide__arrows {
+    width: 100vw;
+    position: absolute;
+}
+
+.splide__arrow {
+    color: whitesmoke;
+}
+
+card-slider button.next-arrow,
+card-slider button.prev-arrow {
     opacity: 0;
     border: 0;
     position: absolute;
     top: 0;
     z-index: 1000;
-    height: 100%;
+    height: 21rem;
     width: fit-content;
     padding: auto;
     font-size: 2rem;
     transition: opacity 0.5s ease 0.2s;
 }
 
-.card-slider>button.prev-arrow {
+card-slider button.prev-arrow {
     background: -webkit-linear-gradient(right, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
     left: 0;
 }
 
-.card-slider>button.next-arrow {
+card-slider button.next-arrow {
     background: -webkit-linear-gradient(left, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 0.9));
     right: 0;
 }
 
-.card-slider:hover>button.next-arrow,
-.card-slider:hover>button.prev-arrow {
+card-slider:hover button.next-arrow,
+card-slider:hover button.prev-arrow {
     opacity: 100%;
+}
+
+card-slider button.next-arrow:disabled,
+card-slider button.prev-arrow:disabled {
+    opacity: 0;
 }
 
 card-list card-item:first-child {
@@ -177,4 +192,70 @@ card-list .movie-card-title {
 
 card-list .movie-info {
     color: #1f1f1f;
+}
+
+@media only screen and (max-width: 992px) {
+    .movie-card {
+        width: 8rem;
+    }
+
+    .movie-card img {
+        height: 12rem;
+    }
+
+    .movie-card-body {
+        padding: 0.3rem;
+        padding-top: 1rem;
+    }
+
+    .movie-card-body>.bi-play-fill {
+        font-size: 3rem;
+        top: 10.5rem;
+    }
+
+    .movie-card-title {
+        font-size: 0.8rem;
+    }
+
+    .movie-info {
+        font-size: 0.7rem;
+    }
+
+    .splide__track {
+        height: 18rem;
+    }
+
+    card-slider button.next-arrow,
+    card-slider button.prev-arrow {
+        height: 18rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .movie-card {
+        width: 6rem;
+    }
+
+    .movie-card img {
+        height: 9rem;
+    }
+
+    .movie-card-body {
+        padding: 0.2rem;
+        padding-top: 0.8rem;
+    }
+
+    .movie-card-body>.bi-play-fill {
+        font-size: 2rem;
+        top: 8rem;
+    }
+
+    .splide__track {
+        height: 14rem;
+    }
+
+    card-slider button.next-arrow,
+    card-slider button.prev-arrow {
+        height: 14rem;
+    }
 }
