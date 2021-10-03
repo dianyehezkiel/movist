@@ -1,9 +1,10 @@
 import Splide from '@splidejs/splide';
 
-const splideSlider = () => {
-  new Splide('.splide', {
+const splideSlider = (elem) => {
+  new Splide(elem, {
     pagination: false,
     perPage: 7,
+    lazyLoad: 'nearby',
     autoWidth: true,
     drag: true,
     breakpoints: {
