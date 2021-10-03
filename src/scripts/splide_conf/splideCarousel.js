@@ -1,7 +1,7 @@
 import Splide from '@splidejs/splide';
 
-const splideCarousel = () => {
-  new Splide('.splide', {
+const splideCarousel = (elem) => {
+  new Splide(elem, {
     pagination: false,
     perPage: 1,
     autoWidth: true,

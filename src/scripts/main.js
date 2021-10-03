@@ -5,7 +5,7 @@ const main = () => {
     api_key: process.env.API_KEY,
   };
   Movie.getPopular(undefined, params, 'carousel');
-  // Movie.getPopular(undefined, params, 'slider');
+  Movie.getPopular(undefined, params, 'slider');
 
   const popMovElem = document.getElementById('popular-movies-menu');
 

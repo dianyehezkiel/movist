@@ -11,7 +11,7 @@ class Renderer {
     const carouselBannerElem = document.createElement('carousel-banner');
     carouselBannerElem.carouselItems = items;
     mainElem.appendChild(carouselBannerElem);
-    splideCarousel();
+    splideCarousel(carouselBannerElem);
   }
 
   static renderSlider(items, title) {
