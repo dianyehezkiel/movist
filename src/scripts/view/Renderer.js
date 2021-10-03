@@ -18,7 +18,11 @@ class Renderer {
     const mainElem = document.getElementById('main');
 
     const sliderTitle = document.createElement('h2');
-    sliderTitle.classList.add('d-block', 'fw-bold', 'mt-3', 'ms-2');
+    sliderTitle.classList.add('d-block',
+        'fw-bold',
+        'mt-3',
+        'ms-2',
+        'text-light');
     sliderTitle.innerHTML = title;
     mainElem.appendChild(sliderTitle);
 
@@ -30,7 +34,7 @@ class Renderer {
 
   static renderList(items, title) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = `<h1 class='d-block fw-bold text-center'>
+    mainElem.innerHTML = `<h1 class='d-block fw-bold text-center text-light'>
         ${title}</h1>`;
     const cardListElem = document.createElement('card-list');
     cardListElem.listItems = items;

@@ -10,6 +10,8 @@ const splideCarousel = (elem) => {
     lazyLoad: 'nearby',
     focus: 'center',
     trimSpace: false,
+    autoplay: true,
+    interval: 5000,
   }).mount();
 };
 
