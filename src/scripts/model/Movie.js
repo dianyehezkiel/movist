@@ -15,7 +15,7 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'slider':
-                Renderer.renderSlider(responseJson.results);
+                Renderer.renderSlider(responseJson.results, 'Popular Movies');
                 break;
               case 'list':
                 Renderer.renderList(responseJson.results, 'Popular Movies');
