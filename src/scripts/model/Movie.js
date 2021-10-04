@@ -2,39 +2,6 @@
 import Renderer from '../view/Renderer';
 
 class Movie {
-  static getNowPlaying(baseUrl='https://api.themoviedb.org/3', urlParams, renderInto) {
-    const url = new URL(`${baseUrl}/movie/now_playing`);
-    url.search = new URLSearchParams(urlParams).toString();
-
-    fetch(url)
-        .then((response) => {
-          return response.json();
-        })
-        .then((responseJson) => {
-          if (responseJson.status_code) {
-            Renderer.renderError(responseJson.status_message);
-          } else {
-            switch (renderInto) {
-              case 'carousel':
-                Renderer.renderCarousel(responseJson.results);
-                break;
-              case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Now Playing');
-                break;
-              case 'list':
-                Renderer.renderList(responseJson.results, 'Now Playing');
-                break;
-              default:
-                Renderer.renderError(
-                    `Error: getNowPlaying's param renderInto required`);
-            }
-          }
-        })
-        .catch((error) => {
-          Renderer.renderError(error);
-        });
-  };
-
   static getTrending(baseUrl='https://api.themoviedb.org/3', timeWindow='day', urlParams, renderInto) {
     const url = new URL(`${baseUrl}/trending/movie/${timeWindow}`);
     url.search = new URLSearchParams(urlParams).toString();
@@ -49,7 +16,11 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results);
+                if (timeWindow === 'day') {
+                  Renderer.renderCarousel(responseJson.results, 'Trending Movies Today');
+                } else if (timeWindow === 'week') {
+                  Renderer.renderCarousel(responseJson.results, 'Trending Movies This Week');
+                }
                 break;
               case 'slider':
                 if (timeWindow === 'day') {
@@ -67,7 +38,7 @@ class Movie {
                 break;
               default:
                 Renderer.renderError(
-                    `Error: getTrending's param renderInto required`);
+                    `Error: Movie.getTrending's param renderInto required`);
             }
           }
         })
@@ -90,7 +61,7 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results);
+                Renderer.renderCarousel(responseJson.results, 'Popular Movies');
                 break;
               case 'slider':
                 Renderer.renderSlider(responseJson.results, 'Popular Movies');
@@ -100,7 +71,7 @@ class Movie {
                 break;
               default:
                 Renderer.renderError(
-                    `Error: getPopular's param renderInto required`);
+                    `Error: Movie.getPopular's param renderInto required`);
             }
           }
         })
@@ -123,7 +94,7 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results);
+                Renderer.renderCarousel(responseJson.results, 'Top Rated Movies');
                 break;
               case 'slider':
                 Renderer.renderSlider(responseJson.results, 'Top Rated Movies');
@@ -133,7 +104,40 @@ class Movie {
                 break;
               default:
                 Renderer.renderError(
-                    `Error: getTopRated's param renderInto required`);
+                    `Error: Movie.getTopRated's param renderInto required`);
+            }
+          }
+        })
+        .catch((error) => {
+          Renderer.renderError(error);
+        });
+  };
+
+  static getNowPlaying(baseUrl='https://api.themoviedb.org/3', urlParams, renderInto) {
+    const url = new URL(`${baseUrl}/movie/now_playing`);
+    url.search = new URLSearchParams(urlParams).toString();
+
+    fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((responseJson) => {
+          if (responseJson.status_code) {
+            Renderer.renderError(responseJson.status_message);
+          } else {
+            switch (renderInto) {
+              case 'carousel':
+                Renderer.renderCarousel(responseJson.results, 'Now Playing');
+                break;
+              case 'slider':
+                Renderer.renderSlider(responseJson.results, 'Now Playing');
+                break;
+              case 'list':
+                Renderer.renderList(responseJson.results, 'Now Playing');
+                break;
+              default:
+                Renderer.renderError(
+                    `Error: Movie.getNowPlaying's param renderInto required`);
             }
           }
         })
@@ -156,7 +160,7 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results);
+                Renderer.renderCarousel(responseJson.results, 'Upcoming Movies');
                 break;
               case 'slider':
                 Renderer.renderSlider(responseJson.results, 'Upcoming Movies');
@@ -166,7 +170,7 @@ class Movie {
                 break;
               default:
                 Renderer.renderError(
-                    `Error: getUpcoming's param renderInto required`);
+                    `Error: Movie.getUpcoming's param renderInto required`);
             }
           }
         })
