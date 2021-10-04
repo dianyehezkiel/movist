@@ -6,8 +6,17 @@ import splideSlider from '../splide_conf/splideSlider.js';
 import splideCarousel from '../splide_conf/splideCarousel.js';
 
 class Renderer {
-  static renderCarousel(items) {
+  static renderCarousel(items, title) {
     const mainElem = document.getElementById('main');
+    const carouselTitle = document.createElement('h2');
+    carouselTitle.classList.add('d-block',
+        'fw-bold',
+        'mt-3',
+        'ms-2',
+        'text-light');
+    carouselTitle.innerHTML = title;
+    mainElem.appendChild(carouselTitle);
+
     const carouselBannerElem = document.createElement('carousel-banner');
     carouselBannerElem.carouselItems = items;
     mainElem.appendChild(carouselBannerElem);
@@ -16,7 +25,6 @@ class Renderer {
 
   static renderSlider(items, title) {
     const mainElem = document.getElementById('main');
-
     const sliderTitle = document.createElement('h2');
     sliderTitle.classList.add('d-block',
         'fw-bold',
@@ -34,8 +42,16 @@ class Renderer {
 
   static renderList(items, title) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = `<h1 class='d-block fw-bold text-center text-light'>
-        ${title}</h1>`;
+    mainElem.innerHTML = '';
+    const listTitle = document.createElement('h1');
+    listTitle.classList.add('d-block',
+        'fw-bold',
+        'text-center',
+        'mt-3',
+        'text-light');
+    listTitle.innerHTML = title;
+    mainElem.appendChild(listTitle);
+
     const cardListElem = document.createElement('card-list');
     cardListElem.listItems = items;
     mainElem.appendChild(cardListElem);
