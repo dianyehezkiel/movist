@@ -1,0 +1,304 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background: rgb(12, 17, 27);
+}
+
+main {
+    padding-top: 68px;
+    padding-bottom: 52px;
+}
+
+main.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+carousel-item {
+    display: inline-block;
+    width: 80vw !important;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+carousel-item img {
+    width: 40vw;
+    border-radius: 10px 0 0 10px;
+    
+}
+
+.carousel-info {
+    color: whitesmoke;
+    width: 50vw;
+    padding: 16px;
+    padding-left: 10vw;
+    background: -webkit-linear-gradient(left, transparent, rgba(0,0,0, 0) 1%,rgba(13, 37, 63, 0.8) 10%, rgba(13, 37, 63,1) 15%, rgba(13, 37, 63,1));
+    border-radius: 0 10px 10px 0;
+}
+
+carousel-banner button.next-arrow,
+carousel-banner button.prev-arrow {
+    opacity: 0;
+    border: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    height: (40vw * 9/16);
+    width: fit-content;
+    padding: auto;
+    font-size: 2rem;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+carousel-banner:hover button.next-arrow,
+carousel-banner:hover button.prev-arrow {
+    opacity: 1;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
+
+.movie-card {
+    background: transparent;
+    width: 10rem;
+    display: inline-block;
+    padding: 0 !important;
+    margin: 12px 8px;
+    border-radius: 10px;
+    border: 0;
+    color: black;
+    transition: all 0.5s ease 0.1s;
+    text-decoration: none;
+}
+
+card-item:first-child {
+    margin-left: 24px;
+}
+
+card-item:last-child {
+    margin-right: 24px;
+}
+
+
+.movie-card:hover {
+    cursor: pointer;
+    color: black;
+    transform: scale(1.07);
+}
+
+.movie-card img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 15rem;
+}
+
+.movie-card-body {
+    padding: 0.5rem;
+    padding-top: 1.2rem;
+}
+
+.movie-card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1px;
+    color: whitesmoke;
+    white-space: nowrap;
+    max-lines: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #d1d1d1;
+}
+
+.movie-rating {
+    position: absolute;
+    right: 0.5rem;
+}
+
+.movie-card-body>.movie-rating>.bi-star-fill {
+    color: gold;
+}
+
+.movie-card-body>.bi-play-fill {
+    font-size: 4rem;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    top: 13rem;
+    color: $red;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.movie-card-body>.bi-play-fill:hover {
+    color: red;
+}
+
+
+card-slider .splide__track {
+    height: 21rem;
+    background: rgb(13, 37, 63);
+}
+
+.bi-chevron-right,
+.bi-chevron-left {
+    margin: auto 0;
+    color: whitesmoke !important;
+}
+
+.splide__arrows {
+    width: 100vw;
+    position: absolute;
+}
+
+.splide__arrow {
+    color: whitesmoke;
+}
+
+card-slider button.next-arrow,
+card-slider button.prev-arrow {
+    opacity: 0;
+    border: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    height: 21rem;
+    width: fit-content;
+    padding: auto;
+    font-size: 2rem;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+button.prev-arrow {
+    background: -webkit-linear-gradient(right, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 1));
+    left: 0;
+}
+
+button.next-arrow {
+    background: -webkit-linear-gradient(left, transparent, rgba(12, 17, 27, 0.7), rgba(12, 17, 27, 1));
+    right: 0;
+}
+
+card-slider:hover button.next-arrow,
+card-slider:hover button.prev-arrow {
+    opacity: 1;
+}
+
+button.next-arrow:disabled,
+button.prev-arrow:disabled {
+    opacity: 0 !important;
+}
+
+card-list card-item:first-child {
+    margin-left: unset;
+}
+
+card-list card-item:last-child {
+    margin-right: unset;
+}
+
+// card-list .movie-card-title {
+//     color: #0f0f0f;
+// }
+
+// card-list .movie-info {
+//     color: #1f1f1f;
+// }
+
+@media only screen and (max-width: 992px) {
+    .movie-card {
+        width: 8rem;
+    }
+
+    .movie-card img {
+        height: 12rem;
+    }
+
+    .movie-card-body {
+        padding: 0.3rem;
+        padding-top: 1rem;
+    }
+
+    .movie-card-body>.bi-play-fill {
+        font-size: 3rem;
+        top: 10.5rem;
+    }
+
+    .movie-card-title {
+        font-size: 0.8rem;
+    }
+
+    .movie-info {
+        font-size: 0.7rem;
+    }
+
+    card-slider .splide__track {
+        height: 18rem;
+    }
+
+    card-slider button.next-arrow,
+    card-slider button.prev-arrow {
+        height: 18rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .movie-card {
+        width: 6rem;
+    }
+
+    .movie-card img {
+        height: 9rem;
+    }
+
+    .movie-card-body {
+        padding: 0.2rem;
+        padding-top: 0.8rem;
+    }
+
+    .movie-card-body>.bi-play-fill {
+        font-size: 2rem;
+        top: 8rem;
+    }
+
+    card-slider .splide__track {
+        height: 14rem;
+    }
+
+    card-slider button.next-arrow,
+    card-slider button.prev-arrow {
+        height: 14rem;
+    }
+}
