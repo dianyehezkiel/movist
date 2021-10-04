@@ -178,6 +178,26 @@ class Movie {
           Renderer.renderError(error);
         });
   };
+
+  static getSearch(baseUrl='https://api.themoviedb.org/3', urlParams) {
+    const url = new URL(`${baseUrl}/search/movie`);
+    url.search = new URLSearchParams(urlParams).toString();
+
+    fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((responseJson) => {
+          if (responseJson.status_code) {
+            Renderer.renderError(responseJson.status_message);
+          } else {
+            Renderer.renderList(responseJson.results, `Results for ${urlParams.query}`);
+          }
+        })
+        .catch((error) => {
+          Renderer.renderError(error);
+        });
+  };
 }
 
 export default Movie;

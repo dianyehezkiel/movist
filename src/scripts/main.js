@@ -5,6 +5,7 @@ const main = () => {
   const params = {
     api_key: process.env.API_KEY,
   };
+
   const loadHome = () => {
     Movie.getNowPlaying(undefined, params, 'carousel');
     Movie.getTrending(undefined, undefined, params, 'slider');
@@ -33,7 +34,7 @@ const main = () => {
   const topTvMenu = document.getElementById('top-tv-menu');
   const onAirTvMenu = document.getElementById('on-air-tv-menu');
   const airingTodayTvMenu = document.getElementById('airing-today-tv-menu');
-
+  const searchButton = document.getElementById('search-button');
 
   const onClickHome = (e) => {
     e.preventDefault();
@@ -91,6 +92,17 @@ const main = () => {
     TvShow.getAiringToday(undefined, params, 'list');
   };
 
+  const onClickSearch = (e) => {
+    e.preventDefault();
+    const searchQuery = document.getElementById('search-input').value;
+    const searchParams = {
+      api_key: process.env.API_KEY,
+      query: searchQuery,
+    };
+
+    Movie.getSearch(undefined, searchParams);
+  };
+
   logoElem.addEventListener('click', onClickHome);
   homeMenu.addEventListener('click', onClickHome);
   trendMovMenu.addEventListener('click', onClickTrendMov);
@@ -103,6 +115,7 @@ const main = () => {
   topTvMenu.addEventListener('click', onClickTopTv);
   onAirTvMenu.addEventListener('click', onClickOnAirTv);
   airingTodayTvMenu.addEventListener('click', onClickAirTodayTv);
+  searchButton.addEventListener('click', onClickSearch);
 };
 
 export default main;
