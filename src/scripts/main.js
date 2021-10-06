@@ -1,3 +1,4 @@
+import Item from './model/Item';
 import Movie from './model/Movie';
 import TvShow from './model/TvShow';
 
@@ -116,6 +117,29 @@ const main = () => {
   onAirTvMenu.addEventListener('click', onClickOnAirTv);
   airingTodayTvMenu.addEventListener('click', onClickAirTodayTv);
   searchButton.addEventListener('click', onClickSearch);
+
+  const config = {attributes: false, childList: true, subtree: false};
+
+  const callback = (mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const cardListElem = document
+            .querySelectorAll('card-list > .card-item');
+        if (cardListElem.length) {
+          cardListElem.forEach((card) => {
+            card.addEventListener('click', function() {
+              // eslint-disable-next-line no-invalid-this
+              Item.getDetail(undefined, params, this.lastChild.id);
+            });
+          });
+        }
+      }
+    }
+  };
+
+  const observer = new MutationObserver(callback);
+
+  observer.observe(mainElem, config);
 };
 
 export default main;
