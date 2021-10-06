@@ -1,7 +1,8 @@
 import Splide from '@splidejs/splide';
+import Item from '../model/Item';
 
 const splideSlider = (elem) => {
-  new Splide(elem, {
+  const splide = new Splide(elem, {
     pagination: false,
     perPage: 7,
     lazyLoad: 'nearby',
@@ -22,6 +23,16 @@ const splideSlider = (elem) => {
       },
     },
   }).mount();
+
+  splide.on('click', (Slide) => {
+    console.log(Slide.slide.lastChild.id);
+    Item.getDetail(
+        undefined,
+        {
+          api_key: process.env.API_KEY,
+        },
+        Slide.slide.lastChild.id);
+  });
 };
 
 export default splideSlider;

@@ -1,3 +1,4 @@
+import Item from './model/Item';
 import Movie from './model/Movie';
 import TvShow from './model/TvShow';
 
@@ -94,13 +95,18 @@ const main = () => {
 
   const onClickSearch = (e) => {
     e.preventDefault();
-    const searchQuery = document.getElementById('search-input').value;
-    const searchParams = {
-      api_key: process.env.API_KEY,
-      query: searchQuery,
-    };
 
-    Movie.getSearch(undefined, searchParams);
+    const searchQuery = document.getElementById('search-input').value;
+    const mediaType = document.getElementById('media-type-select').value;
+
+    if (searchQuery) {
+      const searchParams = {
+        api_key: process.env.API_KEY,
+        query: searchQuery,
+      };
+
+      Item.getSearch(undefined, mediaType, searchParams);
+    }
   };
 
   logoElem.addEventListener('click', onClickHome);
@@ -116,6 +122,29 @@ const main = () => {
   onAirTvMenu.addEventListener('click', onClickOnAirTv);
   airingTodayTvMenu.addEventListener('click', onClickAirTodayTv);
   searchButton.addEventListener('click', onClickSearch);
+
+  const config = {attributes: false, childList: true, subtree: false};
+
+  const callback = (mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const cardListElem = document
+            .querySelectorAll('card-list > .card-item');
+        if (cardListElem.length) {
+          cardListElem.forEach((card) => {
+            card.addEventListener('click', function() {
+              // eslint-disable-next-line no-invalid-this
+              Item.getDetail(undefined, params, this.lastChild.id);
+            });
+          });
+        }
+      }
+    }
+  };
+
+  const observer = new MutationObserver(callback);
+
+  observer.observe(mainElem, config);
 };
 
 export default main;

@@ -17,23 +17,23 @@ class Movie {
             switch (renderInto) {
               case 'carousel':
                 if (timeWindow === 'day') {
-                  Renderer.renderCarousel(responseJson.results, 'Trending Movies Today');
+                  Renderer.renderCarousel(responseJson.results, 'movie', 'Trending Movies Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderCarousel(responseJson.results, 'Trending Movies This Week');
+                  Renderer.renderCarousel(responseJson.results, 'movie', 'Trending Movies This Week');
                 }
                 break;
               case 'slider':
                 if (timeWindow === 'day') {
-                  Renderer.renderSlider(responseJson.results, 'Trending Movies Today');
+                  Renderer.renderSlider(responseJson.results, 'movie', 'Trending Movies Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderSlider(responseJson.results, 'Trending Movies This Week');
+                  Renderer.renderSlider(responseJson.results, 'movie', 'Trending Movies This Week');
                 }
                 break;
               case 'list':
                 if (timeWindow === 'day') {
-                  Renderer.renderList(responseJson.results, 'Trending Movies Today');
+                  Renderer.renderList(responseJson.results, 'movie', 'Trending Movies Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderList(responseJson.results, 'Trending Movies This Week');
+                  Renderer.renderList(responseJson.results, 'movie', 'Trending Movies This Week');
                 }
                 break;
               default:
@@ -61,13 +61,13 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Popular Movies');
+                Renderer.renderCarousel(responseJson.results, 'movie', 'Popular Movies');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Popular Movies');
+                Renderer.renderSlider(responseJson.results, 'movie', 'Popular Movies');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Popular Movies');
+                Renderer.renderList(responseJson.results, 'movie', 'Popular Movies');
                 break;
               default:
                 Renderer.renderError(
@@ -94,13 +94,13 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Top Rated Movies');
+                Renderer.renderCarousel(responseJson.results, 'movie', 'Top Rated Movies');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Top Rated Movies');
+                Renderer.renderSlider(responseJson.results, 'movie', 'Top Rated Movies');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Top Rated Movies');
+                Renderer.renderList(responseJson.results, 'movie', 'Top Rated Movies');
                 break;
               default:
                 Renderer.renderError(
@@ -127,13 +127,13 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Now Playing');
+                Renderer.renderCarousel(responseJson.results, 'movie', 'Now Playing');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Now Playing');
+                Renderer.renderSlider(responseJson.results, 'movie', 'Now Playing');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Now Playing');
+                Renderer.renderList(responseJson.results, 'movie', 'Now Playing');
                 break;
               default:
                 Renderer.renderError(
@@ -160,38 +160,18 @@ class Movie {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Upcoming Movies');
+                Renderer.renderCarousel(responseJson.results, 'movie', 'Upcoming Movies');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Upcoming Movies');
+                Renderer.renderSlider(responseJson.results, 'movie', 'Upcoming Movies');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Upcoming Movies');
+                Renderer.renderList(responseJson.results, 'movie', 'Upcoming Movies');
                 break;
               default:
                 Renderer.renderError(
                     `Error: Movie.getUpcoming's param renderInto required`);
             }
-          }
-        })
-        .catch((error) => {
-          Renderer.renderError(error);
-        });
-  };
-
-  static getSearch(baseUrl='https://api.themoviedb.org/3', urlParams) {
-    const url = new URL(`${baseUrl}/search/movie`);
-    url.search = new URLSearchParams(urlParams).toString();
-
-    fetch(url)
-        .then((response) => {
-          return response.json();
-        })
-        .then((responseJson) => {
-          if (responseJson.status_code) {
-            Renderer.renderError(responseJson.status_message);
-          } else {
-            Renderer.renderList(responseJson.results, `Results for ${urlParams.query}`);
           }
         })
         .catch((error) => {
