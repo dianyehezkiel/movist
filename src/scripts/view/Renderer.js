@@ -78,7 +78,6 @@ class Renderer {
   }
 
   static renderError(message) {
-    // Test
     console.log(message);
   }
 }
