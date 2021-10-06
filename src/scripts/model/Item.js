@@ -44,7 +44,7 @@ class Item {
           if (responseJson.status_code) {
             Renderer.renderError(responseJson.status_message);
           } else {
-            if (!responseJson.results) {
+            if (!responseJson.results.length) {
               Renderer.renderError(`No result for ${urlParams.query}`);
             } else {
               Renderer.renderList(responseJson.results,
