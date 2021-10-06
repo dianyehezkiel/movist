@@ -5,13 +5,16 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
   <title>Movist - Movie List</title>
 </head>
 
 <body>
 
-  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-primary">
+  <nav class="shadow navbar fixed-top navbar-expand-md navbar-dark bg-primary">
     <div class="container-xxl">
       <a id="navbar-logo" class="navbar-brand" href="#">Movist</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -24,29 +27,30 @@
             <a id="home-menu" class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarMoviesDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarMoviesDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Movies
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarMoviesDropdown">
-              <li><a id="trending-movies-menu" class="dropdown-item" href="#">Trending</a></li>
-              <li><a id="popular-movies-menu" class="dropdown-item" href="#">Popular</a></li>
-              <li><a id="top-movies-menu" class="dropdown-item" href="#">Top Rated</a></li>
-              <li><a id="playing-movies-menu" class="dropdown-item" href="#">Now Playing</a></li>
-              <li><a id="upcoming-movies-menu" class="dropdown-item" href="#">Coming Soon</a></li>
+              <li><a id="trending-movies-menu" class="dropdown-item" href="/movies/trending">Trending</a></li>
+              <li><a id="popular-movies-menu" class="dropdown-item" href="/movies/popular">Popular</a></li>
+              <li><a id="top-movies-menu" class="dropdown-item" href="/movies/top-rated">Top Rated</a></li>
+              <li><a id="playing-movies-menu" class="dropdown-item" href="/movies/now-playing">Now Playing</a></li>
+              <li><a id="upcoming-movies-menu" class="dropdown-item" href="/movies/coming-soon">Coming Soon</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarSeriesDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarSeriesDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               TV Show
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarSeriesDropdown">
-              <li><a id="trending-tv-menu" class="dropdown-item" href="#">Trending</a></li>
-              <li><a id="popular-tv-menu" class="dropdown-item" href="#">Popular</a></li>
-              <li><a id="top-tv-menu" class="dropdown-item" href="#">Top Rated</a></li>
-              <li><a id="on-air-tv-menu" class="dropdown-item" href="#">On Air Today</a></li>
-              <li><a id="airing-today-tv-menu" class="dropdown-item" href="#">On Air This Week</a></li>
+              <li><a id="trending-tv-menu" class="dropdown-item" href="tv-show/trending">Trending</a></li>
+              <li><a id="popular-tv-menu" class="dropdown-item" href="tv-show/popular">Popular</a></li>
+              <li><a id="top-tv-menu" class="dropdown-item" href="tv-show/top-rated">Top Rated</a></li>
+              <li><a id="on-air-tv-menu" class="dropdown-item" href="tv-show/on-air-today">On Air Today</a></li>
+              <li><a id="airing-today-tv-menu" class="dropdown-item" href="tv-show/on-air-this-week">On Air This
+                  Week</a></li>
             </ul>
           </li>
         </ul>
