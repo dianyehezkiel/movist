@@ -1,8 +1,13 @@
-import './carousel-item.js';
+import './movie-carousel.js';
+import './tv-carousel.js';
 
 class CarouselBanner extends HTMLElement {
   set carouselItems(items) {
     this._items = items;
+  }
+
+  set mediaType(mediaType) {
+    this._mediaType = mediaType;
     this.render();
   }
 
@@ -21,12 +26,24 @@ class CarouselBanner extends HTMLElement {
     splideList.classList.add('splide__list');
     this.lastChild.appendChild(splideList);
 
-    this._items.forEach((item) => {
-      const carouselItemElem = document.createElement('carousel-item');
-      carouselItemElem.classList.add('splide__slide');
-      carouselItemElem.item = item;
-      splideList.appendChild(carouselItemElem);
-    });
+    switch (this._mediaType) {
+      case 'movie':
+        this._items.forEach((item) => {
+          const movieCarouselElem = document.createElement('movie-carousel');
+          movieCarouselElem.classList.add('splide__slide');
+          movieCarouselElem.item = item;
+          splideList.appendChild(movieCarouselElem);
+        });
+        break;
+      case 'tv':
+        this._items.forEach((item) => {
+          const tvCarouselElem = document.createElement('tv-carousel');
+          tvCarouselElem.classList.add('splide__slide');
+          tvCarouselElem.item = item;
+          splideList.appendChild(tvCarouselElem);
+        });
+        break;
+    }
   }
 }
 
