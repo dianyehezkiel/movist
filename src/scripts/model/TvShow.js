@@ -17,23 +17,23 @@ class TvShow {
             switch (renderInto) {
               case 'carousel':
                 if (timeWindow === 'day') {
-                  Renderer.renderCarousel(responseJson.results, 'Trending TV Show Today');
+                  Renderer.renderCarousel(responseJson.results, 'tv', 'Trending TV Show Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderCarousel(responseJson.results, 'Trending TV Show This Week');
+                  Renderer.renderCarousel(responseJson.results, 'tv', 'Trending TV Show This Week');
                 }
                 break;
               case 'slider':
                 if (timeWindow === 'day') {
-                  Renderer.renderSlider(responseJson.results, 'Trending TV Show Today');
+                  Renderer.renderSlider(responseJson.results, 'tv', 'Trending TV Show Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderSlider(responseJson.results, 'Trending TV Show This Week');
+                  Renderer.renderSlider(responseJson.results, 'tv', 'Trending TV Show This Week');
                 }
                 break;
               case 'list':
                 if (timeWindow === 'day') {
-                  Renderer.renderList(responseJson.results, 'Trending TV Show Today');
+                  Renderer.renderList(responseJson.results, 'tv', 'Trending TV Show Today');
                 } else if (timeWindow === 'week') {
-                  Renderer.renderList(responseJson.results, 'Trending TV Show This Week');
+                  Renderer.renderList(responseJson.results, 'tv', 'Trending TV Show This Week');
                 }
                 break;
               default:
@@ -61,13 +61,13 @@ class TvShow {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Popular TV Show');
+                Renderer.renderCarousel(responseJson.results, 'tv', 'Popular TV Show');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Popular TV Show');
+                Renderer.renderSlider(responseJson.results, 'tv', 'Popular TV Show');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Popular TV Show');
+                Renderer.renderList(responseJson.results, 'tv', 'Popular TV Show');
                 break;
               default:
                 Renderer.renderError(
@@ -94,13 +94,13 @@ class TvShow {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Top Rated TV Show');
+                Renderer.renderCarousel(responseJson.results, 'tv', 'Top Rated TV Show');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Top Rated TV Show');
+                Renderer.renderSlider(responseJson.results, 'tv', 'Top Rated TV Show');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Top Rated TV Show');
+                Renderer.renderList(responseJson.results, 'tv', 'Top Rated TV Show');
                 break;
               default:
                 Renderer.renderError(
@@ -127,13 +127,13 @@ class TvShow {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'Airing TV Show Today');
+                Renderer.renderCarousel(responseJson.results, 'tv', 'Airing TV Show Today');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'Airing TV Show Today');
+                Renderer.renderSlider(responseJson.results, 'tv', 'Airing TV Show Today');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'Airing TV Show Today');
+                Renderer.renderList(responseJson.results, 'tv', 'Airing TV Show Today');
                 break;
               default:
                 Renderer.renderError(
@@ -160,13 +160,13 @@ class TvShow {
           } else {
             switch (renderInto) {
               case 'carousel':
-                Renderer.renderCarousel(responseJson.results, 'On Air TV Show');
+                Renderer.renderCarousel(responseJson.results, 'tv', 'On Air TV Show');
                 break;
               case 'slider':
-                Renderer.renderSlider(responseJson.results, 'On Air TV Show');
+                Renderer.renderSlider(responseJson.results, 'tv', 'On Air TV Show');
                 break;
               case 'list':
-                Renderer.renderList(responseJson.results, 'On Air TV Show');
+                Renderer.renderList(responseJson.results, 'tv', 'On Air TV Show');
                 break;
               default:
                 Renderer.renderError(
