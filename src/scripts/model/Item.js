@@ -44,9 +44,13 @@ class Item {
           if (responseJson.status_code) {
             Renderer.renderError(responseJson.status_message);
           } else {
-            Renderer.renderList(responseJson.results,
-                mediaType,
-                `Results for ${urlParams.query}`);
+            if (responseJson.results) {
+              Renderer.renderError(`No result for ${urlParams.query}`);
+            } else {
+              Renderer.renderList(responseJson.results,
+                  mediaType,
+                  `Results for ${urlParams.query}`);
+            }
           }
         })
         .catch((error) => {
