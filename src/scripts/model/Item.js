@@ -1,0 +1,35 @@
+import Renderer from '../view/Renderer';
+
+class Item {
+  static getDetail(baseUrl='https://api.themoviedb.org/3', urlParams, id) {
+    const url = new URL(`${baseUrl}${id}`);
+    url.search = new URLSearchParams(urlParams).toString();
+
+    fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((responseJson) => {
+          if (responseJson.status_code) {
+            Renderer.renderError(responseJson.status_message);
+          } else {
+            const idArr = id.split('/');
+            switch (idArr[1]) {
+              case 'movie':
+                Renderer.renderDetail(responseJson, 'movie');
+                break;
+              case 'tv':
+                Renderer.renderDetail(responseJson, 'tv');
+                break;
+              default:
+                Renderer.renderError('Unknown Media Type');
+            }
+          }
+        })
+        .catch((error)=> {
+          Renderer.renderError(error);
+        });
+  }
+}
+
+export default Item;
