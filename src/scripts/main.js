@@ -95,13 +95,18 @@ const main = () => {
 
   const onClickSearch = (e) => {
     e.preventDefault();
-    const searchQuery = document.getElementById('search-input').value;
-    const searchParams = {
-      api_key: process.env.API_KEY,
-      query: searchQuery,
-    };
 
-    Movie.getSearch(undefined, searchParams);
+    const searchQuery = document.getElementById('search-input').value;
+    const mediaType = document.getElementById('media-type-select').value;
+
+    if (searchQuery) {
+      const searchParams = {
+        api_key: process.env.API_KEY,
+        query: searchQuery,
+      };
+
+      Item.getSearch(undefined, mediaType, searchParams);
+    }
   };
 
   logoElem.addEventListener('click', onClickHome);
