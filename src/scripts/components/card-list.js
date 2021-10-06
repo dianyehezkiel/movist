@@ -1,8 +1,13 @@
-import './card-item.js';
+import './movie-card';
+import './tv-card.js';
 
 class CardList extends HTMLElement {
   set listItems(items) {
-    this._items=items;
+    this._items = items;
+  }
+
+  set mediaType(mediaType) {
+    this._mediaType = mediaType;
     this.render();
   }
 
@@ -13,11 +18,22 @@ class CardList extends HTMLElement {
         'flex-wrap',
         'justify-content-evenly');
     this.innerHTML = '';
-    this._items.forEach((item) => {
-      const cardItemElement = document.createElement('card-item');
-      cardItemElement.item = item;
-      this.appendChild(cardItemElement);
-    });
+    switch (this._mediaType) {
+      case 'movie':
+        this._items.forEach((item) => {
+          const movieCardElem = document.createElement('movie-card');
+          movieCardElem.item = item;
+          this.appendChild(movieCardElem);
+        });
+        break;
+      case 'tv':
+        this._items.forEach((item) => {
+          const tvCardElem = document.createElement('tv-card');
+          tvCardElem.item = item;
+          this.appendChild(tvCardElem);
+        });
+        break;
+    }
   }
 }
 
