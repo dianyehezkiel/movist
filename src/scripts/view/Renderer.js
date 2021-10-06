@@ -78,8 +78,15 @@ class Renderer {
   }
 
   static renderError(message) {
-    // Test
-    console.log(message);
+    const mainElem = document.getElementById('main');
+    mainElem.innerHTML = '';
+
+    const errorContainer = document.createElement('div');
+    errorContainer.classList.add('w-100', 'mt-3');
+    errorContainer.innerHTML = `<p class="fs-2 fw-bold text-muted text-center">
+        ${message}</p>`;
+
+    mainElem.appendChild(errorContainer);
   }
 }
 

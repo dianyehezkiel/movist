@@ -75,7 +75,6 @@ input:-internal-autofill-selected:active {
 .carousel-item img {
     width: 500px;
     border-radius: 10px 0 0 10px;
-
 }
 
 .carousel-item:hover {
@@ -124,13 +123,6 @@ carousel-banner button.prev-arrow {
 carousel-banner:hover button.next-arrow,
 carousel-banner:hover button.prev-arrow {
     opacity: 1;
-}
-
-img {
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    pointer-events: none;
 }
 
 .movie-card {
@@ -273,14 +265,6 @@ card-list .card-item:last-child {
 .shadow {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 50%) !important;
 }
-
-// card-list .movie-card-title {
-//     color: #0f0f0f;
-// }
-
-// card-list .movie-info {
-//     color: #1f1f1f;
-// }
 
 @media only screen and (max-width: 992px) {
     .carousel-item {
