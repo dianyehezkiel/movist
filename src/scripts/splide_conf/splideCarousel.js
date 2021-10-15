@@ -16,6 +16,8 @@ const splideCarousel = (elem) => {
   }).mount();
 
   splide.on('click', (Slide) => {
+    const mainElem = document.getElementById('main');
+    mainElem.innerHTML = '';
     console.log(Slide.slide.lastChild.id);
     Item.getDetail(
         undefined,

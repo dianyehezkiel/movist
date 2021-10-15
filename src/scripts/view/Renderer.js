@@ -46,7 +46,6 @@ class Renderer {
 
   static renderList(items, mediaType, title) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = '';
     const listTitle = document.createElement('h1');
     listTitle.classList.add('d-block',
         'fw-bold',
@@ -64,7 +63,6 @@ class Renderer {
 
   static renderDetail(item, mediaType) {
     const mainElem = document.getElementById('main');
-    mainElem.innerHTML = '';
 
     if (mediaType == 'movie') {
       const detailElem = document.createElement('movie-detail');

@@ -45,56 +45,67 @@ const main = () => {
 
   const onClickTrendMov = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     Movie.getTrending(undefined, undefined, params, 'list');
   };
 
   const onClickPopMov = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     Movie.getPopular(undefined, params, 'list');
   };
 
   const onClickTopMov = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     Movie.getTopRated(undefined, params, 'list');
   };
 
   const onClickPlayMov = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     Movie.getNowPlaying(undefined, params, 'list');
   };
 
   const onClickComMov = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     Movie.getUpcoming(undefined, params, 'list');
   };
 
   const onClickTrendTv = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     TvShow.getTrending(undefined, undefined, params, 'list');
   };
 
   const onClickPopTv = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     TvShow.getPopular(undefined, params, 'list');
   };
 
   const onClickTopTv = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     TvShow.getTopRated(undefined, params, 'list');
   };
 
   const onClickOnAirTv = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     TvShow.getOnTheAir(undefined, params, 'list');
   };
 
   const onClickAirTodayTv = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
     TvShow.getAiringToday(undefined, params, 'list');
   };
 
   const onClickSearch = (e) => {
     e.preventDefault();
+    mainElem.innerHTML = '';
 
     const searchQuery = document.getElementById('search-input').value;
     const mediaType = document.getElementById('media-type-select').value;
