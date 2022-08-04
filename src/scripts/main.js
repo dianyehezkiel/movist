@@ -101,7 +101,7 @@ const main = () => {
 
     if (searchQuery) {
       const searchParams = {
-        api_key: process.env.API_KEY,
+        api_key: '88b41b5eb74465e410532cd5337ec9fd',
         query: searchQuery,
       };
 
