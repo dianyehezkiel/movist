@@ -20,7 +20,7 @@ const splideCarousel = (elem) => {
     Item.getDetail(
         undefined,
         {
-          api_key: process.env.API_KEY,
+          api_key: '88b41b5eb74465e410532cd5337ec9fd',
         },
         Slide.slide.lastChild.id);
   });
