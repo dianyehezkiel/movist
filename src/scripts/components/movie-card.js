@@ -21,7 +21,7 @@ class MovieCard extends HTMLElement {
             ${this._item.release_date? this._item.release_date.substr(0, 4):'-'}
           </span>
           <span class="movie-info movie-rating">
-            <i class="bi bi-star-fill"></i> ${this._item.vote_average}
+            <i class="bi bi-star-fill"></i> ${this._item.vote_average.toPrecision(2)}
           </span>
         </div>
       </div>

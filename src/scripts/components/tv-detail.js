@@ -5,6 +5,12 @@ class TvDetail extends HTMLElement {
     this.render();
   }
 
+  #dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+
   render() {
     let genre = '';
     let prodCompany = '';
@@ -51,10 +57,10 @@ class TvDetail extends HTMLElement {
         </div>
         <div class="detail-info text-white mx-4 justify-content-between justify-content-md-start my-2">
           <h1 class="h1 fw-bold text-white mb-1">${this._item.name? this._item.name:'-'}</h1>
-          <p class="mt-0">Release date: ${this._item.first_air_date? this._item.first_air_date:'-'} | 
+          <p class="mt-0">Release date: ${this._item.first_air_date? (new Date(this._item.first_air_date)).toLocaleDateString(undefined, this.#dateOptions):'-'} | 
               Genre: ${genre? genre:'-'} | 
               Runtime: ${this._item.episode_run_time? this._item.episode_run_time[0]+' minutes':'-'} | 
-              Average Vote: <i class="bi bi-star-fill"></i> ${this._item.vote_average? this._item.vote_average:'0'}</p>
+              Average Vote: <i class="bi bi-star-fill"></i> ${this._item.vote_average? this._item.vote_average.toPrecision(2):'0'}</p>
           <h2 class="h2 fw-bold mt-3 mb-1">Overview</h2>
           <p class="mt-0">${this._item.overview? this._item.overview:'-'}</p>
           <h3 class="h3 fw-bold mt-3 mb-1">Production Companies</h4>

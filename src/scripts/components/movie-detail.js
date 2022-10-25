@@ -5,6 +5,12 @@ class MovieDetail extends HTMLElement {
     this.render();
   }
 
+  #dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+
   render() {
     let genre = '';
     let prodCompany = '';
@@ -51,10 +57,10 @@ class MovieDetail extends HTMLElement {
         </div>
         <div class="detail-info text-white mx-4 justify-content-between justify-content-md-start my-2">
           <h1 class="h1 fw-bold text-white mb-1">${this._item.title? this._item.title:'-'}</h1>
-          <p class="mt-0">Release date: ${this._item.release_date? this._item.release_date:'-'} | 
+          <p class="mt-0">Release date: ${this._item.release_date? (new Date(this._item.release_date)).toLocaleDateString(undefined, this.#dateOptions):'-'} | 
               Genre: ${genre? genre:'-'} | 
               Runtime: ${this._item.runtime? this._item.runtime + ' minutes':'-'} | 
-              Average Vote: <i class="bi bi-star-fill"></i> ${this._item.vote_average? this._item.vote_average:'0'}</p>
+              Average Vote: <i class="bi bi-star-fill"></i> ${this._item.vote_average? this._item.vote_average.toPrecision(2):'0.0'}</p>
           <h2 class="h2 fw-bold mt-3 mb-1">Overview</h2>
           <p class="mt-0">${this._item.overview? this._item.overview:'-'}</p>
           <h3 class="h3 fw-bold mt-3 mb-1">Production Companies</h4>
@@ -64,9 +70,9 @@ class MovieDetail extends HTMLElement {
           <h5 class="h5 fw-bold mt-3 mb-1">Status</h5>
           <p class="mt-0">${this._item.status? this._item.status:'-'}</p>
           <h5 class="h5 fw-bold mt-3 mb-1">Budget</h5>
-          <p class="mt-0">${this._item.budget? '$ ' + this._item.budget:'-'}</p>
+          <p class="mt-0">${this._item.budget? '$ ' + this._item.budget.toLocaleString():'-'}</p>
           <h5 class="h5 fw-bold mt-3 mb-1">Revenue</h5>
-          <p class="mt-0">${this._item.revenue? '$ ' + this._item.revenue:'-'}</p>
+          <p class="mt-0">${this._item.revenue? '$ ' + this._item.revenue.toLocaleString():'-'}</p>
         </div>
       </div>
     </div>
