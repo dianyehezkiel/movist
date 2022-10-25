@@ -12,7 +12,7 @@ class Renderer {
     const mainElem = document.getElementById('main');
     const carouselTitle = document.createElement('h2');
     carouselTitle.classList.add('d-block',
-        'fw-bold',
+        'fw-bolder',
         'mt-3',
         'ms-4',
         'text-light');
@@ -30,7 +30,7 @@ class Renderer {
     const mainElem = document.getElementById('main');
     const sliderTitle = document.createElement('h2');
     sliderTitle.classList.add('d-block',
-        'fw-bold',
+        'fw-bolder',
         'mt-3',
         'ms-4',
         'text-light');
@@ -49,7 +49,7 @@ class Renderer {
     mainElem.innerHTML = '';
     const listTitle = document.createElement('h1');
     listTitle.classList.add('d-block',
-        'fw-bold',
+        'fw-bolder',
         'text-center',
         'mt-3',
         'text-light');

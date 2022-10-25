@@ -41,7 +41,8 @@ class MovieDetail extends HTMLElement {
     });
 
     this.innerHTML = `<div class="container-xxl px-0">
-    <div class="w-100" 
+      <div
+        class="w-100" 
         style="background-image: url(${this._item.backdrop_path? 'https://image.tmdb.org/t/p/original' + this._item.backdrop_path : './src/assets/backdrop-fallback.jpg'});
         background-position: center;
         background-repeat: no-repeat;

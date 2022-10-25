@@ -16,7 +16,9 @@ class CardList extends HTMLElement {
         'container-lg',
         'd-flex',
         'flex-wrap',
-        'justify-content-evenly');
+        'justify-content-evenly',
+        'mb-4',
+    );
     this.innerHTML = '';
     switch (this._mediaType) {
       case 'movie':

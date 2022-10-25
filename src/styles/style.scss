@@ -1,13 +1,15 @@
+@use "sass:math";
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
 * {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -o-user-select: none;
     user-select: none;
-    font-family: 'Exo', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 img {
@@ -34,6 +36,7 @@ main {
 main.container-fluid {
     padding-left: 0;
     padding-right: 0;
+    min-height: 100vh;
 }
 
 #search-input {
@@ -53,7 +56,7 @@ input:-internal-autofill-selected:active {
     background-color: transparent;
     background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(1, 180, 228)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
     color: $secondary;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 #media-type-select option {
@@ -68,7 +71,7 @@ input:-internal-autofill-selected:active {
 .carousel-item {
     display: inline-block;
     width: 900px !important;
-    height: (500px * 9/16);
+    height: math.div(500px * 9,16);
     border-radius: 10px;
 }
 
@@ -113,7 +116,7 @@ carousel-banner button.prev-arrow {
     position: absolute;
     top: 0;
     z-index: 1000;
-    height: (500px * 9/16);
+    height: math.div(500px * 9, 16);
     width: fit-content;
     padding: auto;
     font-size: 2rem;
@@ -167,7 +170,7 @@ carousel-banner:hover button.prev-arrow {
 
 .movie-card-title {
     font-size: 0.9rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1px;
     color: whitesmoke;
     display: -webkit-box;
@@ -266,10 +269,18 @@ card-list .card-item:last-child {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 50%) !important;
 }
 
+.detail-info {
+    min-height: calc(100vh - 9rem);
+}
+
+.detail-info {
+    min-height: calc(100vh - 9rem);
+}
+
 @media only screen and (max-width: 992px) {
     .carousel-item {
         width: 700px !important;
-        height: (350px * 9/16);
+        height: math.div(350px * 9, 16);
     }
 
     .carousel-item img {
@@ -290,7 +301,7 @@ card-list .card-item:last-child {
 
     carousel-banner button.next-arrow,
     carousel-banner button.prev-arrow {
-        height: (350px * 9/16);
+        height: math.div(350px * 9, 16);
         font-size: 1.75rem;
     }
 
@@ -332,7 +343,7 @@ card-list .card-item:last-child {
 @media only screen and (max-width: 768px) {
     .carousel-item {
         width: 80vw !important;
-        height: (80vw * 9/16);
+        height: math.div(80vw * 9, 16);
     }
 
     .carousel-item img {
@@ -363,7 +374,7 @@ card-list .card-item:last-child {
 
     carousel-banner button.next-arrow,
     carousel-banner button.prev-arrow {
-        height: (80vw * 9/16);
+        height: math.div(80vw * 9, 16);
         font-size: 1.5rem;
     }
 

@@ -7,21 +7,6 @@ const main = () => {
     api_key: '88b41b5eb74465e410532cd5337ec9fd',
   };
 
-  const loadHome = () => {
-    Movie.getNowPlaying(undefined, params, 'carousel');
-    Movie.getTrending(undefined, undefined, params, 'slider');
-    Movie.getPopular(undefined, params, 'slider');
-    Movie.getUpcoming(undefined, params, 'slider');
-    Movie.getTopRated(undefined, params, 'slider');
-    TvShow.getAiringToday(undefined, params, 'carousel');
-    TvShow.getTrending(undefined, undefined, params, 'slider');
-    TvShow.getPopular(undefined, params, 'slider');
-    TvShow.getOnTheAir(undefined, params, 'slider');
-    TvShow.getTopRated(undefined, params, 'slider');
-  };
-
-  loadHome();
-
   const mainElem = document.getElementById('main');
   const logoElem = document.getElementById('navbar-logo');
   const homeMenu = document.getElementById('home-menu');
@@ -36,6 +21,21 @@ const main = () => {
   const onAirTvMenu = document.getElementById('on-air-tv-menu');
   const airingTodayTvMenu = document.getElementById('airing-today-tv-menu');
   const searchButton = document.getElementById('search-button');
+
+  const loadHome = () => {
+    Movie.getNowPlaying(undefined, params, 'carousel');
+    Movie.getTrending(undefined, undefined, params, 'slider');
+    Movie.getPopular(undefined, params, 'slider');
+    Movie.getUpcoming(undefined, params, 'slider');
+    Movie.getTopRated(undefined, params, 'slider');
+    TvShow.getAiringToday(undefined, params, 'carousel');
+    TvShow.getTrending(undefined, undefined, params, 'slider');
+    TvShow.getPopular(undefined, params, 'slider');
+    TvShow.getOnTheAir(undefined, params, 'slider');
+    TvShow.getTopRated(undefined, params, 'slider');
+  };
+
+  loadHome();
 
   const onClickHome = (e) => {
     e.preventDefault();
